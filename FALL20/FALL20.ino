@@ -11,6 +11,7 @@
 #define LED_LEFT 4
 #define LED_CENTER 3
 #define LED_RIGHT 2
+#define KERNEL_SIZE 5 // size of window for filtering
 
 const char* commands[] = {"0_loud.WAV", "1_loud.WAV", "2_loud.WAV", "3_loud.WAV", "4_loud.WAV", "5_loud.WAV", "6_loud.WAV", "7_loud.WAV", "8_loud.WAV", "9_loud.WAV", "10_loud.WAV", "11_loud.WAV", "12_loud.WAV"}; // C through B (output)
 arduinoFFT FFT = arduinoFFT();
@@ -85,21 +86,20 @@ void loop() {
     }
 
     /*FILTERING*/
-    int kernelSize = 5; // window for averaging
     double vRealFiltered[SAMPLES];
     int sum; // sum of neighboring values
     for(int j = 0; j < SAMPLES; j++) // duplicates vReal to vRealFiltered (needed for edge values where averaging cannot be done since window would exceed boundaries)
     {
         vRealFiltered[j] = vReal[j];
     }
-    for(int k = kernelSize / 2; k < SAMPLES - kernelSize / 2; k++) // runs through all values far away enough from edges where the window doesn't exceed boundary
+    for(int k = KERNEL_SIZE / 2; k < SAMPLES - KERNEL_SIZE / 2; k++) // runs through all values far away enough from edges where the window doesn't exceed boundary
     {
         sum = 0; // reinitialize
-        for(int m = k - kernelSize / 2; m <= k + kernelSize / 2; m++) // runs through all values of the window (should have kernelSize number of iterations)
+        for(int m = k - KERNEL_SIZE / 2; m <= k + KERNEL_SIZE / 2; m++) // runs through all values of the window (should have kernelSize number of iterations)
         {
             sum += vReal[m];
         }
-        vRealFiltered[k] = sum / kernelSize; // average of surrounding window is the new value at that point
+        vRealFiltered[k] = sum / KERNEL_SIZE; // average of surrounding window is the new value at that point
     }
     
     /*FFT*/
