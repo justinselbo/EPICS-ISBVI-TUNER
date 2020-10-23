@@ -83,12 +83,31 @@ void loop() {
         while(micros() < (microseconds + sampling_period_us)){
         }
     }
- 
+
+    /*FILTERING*/
+    int kernelSize = 5; // window for averaging
+    double vRealFiltered[SAMPLES];
+    int sum; // sum of neighboring values
+    for(int j = 0; j < SAMPLES; j++) // duplicates vReal to vRealFiltered (needed for edge values where averaging cannot be done since window would exceed boundaries)
+    {
+        vRealFiltered[j] = vReal[j];
+    }
+    }
+    for(int k = kernelSize / 2; k < SAMPLES - kernelSize / 2; k++) // runs through all values far away enough from edges where the window doesn't exceed boundary
+    {
+        sum = 0; // reinitialize
+        for(int m = k - kernelSize / 2; m <= k + kernelSize / 2; m++) // runs through all values of the window (should have kernelSize number of iterations)
+        {
+            sum += vReal[m];
+        }
+        vRealFiltered[k] = sum / kernelSize; // average of surrounding window is the new value at that point
+    }
+    
     /*FFT*/
-    FFT.Windowing(vReal, SAMPLES, FFT_WIN_TYP_HAMMING, FFT_FORWARD);
-    FFT.Compute(vReal, vImag, SAMPLES, FFT_FORWARD);
-    FFT.ComplexToMagnitude(vReal, vImag, SAMPLES);
-    double peak = FFT.MajorPeak(vReal, SAMPLES, SAMPLING_FREQUENCY);
+    FFT.Windowing(vRealFiltered, SAMPLES, FFT_WIN_TYP_HAMMING, FFT_FORWARD);
+    FFT.Compute(vRealFiltered, vImag, SAMPLES, FFT_FORWARD);
+    FFT.ComplexToMagnitude(vRealFiltered, vImag, SAMPLES);
+    double peak = FFT.MajorPeak(vRealFiltered, SAMPLES, SAMPLING_FREQUENCY);
     
     /*PRINT RESULTS*/
     //Serial.println(peak);     //Print out what frequency is the most dominant.
