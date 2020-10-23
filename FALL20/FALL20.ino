@@ -92,7 +92,6 @@ void loop() {
     {
         vRealFiltered[j] = vReal[j];
     }
-    }
     for(int k = kernelSize / 2; k < SAMPLES - kernelSize / 2; k++) // runs through all values far away enough from edges where the window doesn't exceed boundary
     {
         sum = 0; // reinitialize
