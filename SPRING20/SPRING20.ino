@@ -12,7 +12,7 @@
 #define LED_CENTER 3
 #define LED_RIGHT 2
 
-const char* commands[] = {"0_loud.WAV", "1_loud.WAV", "2_loud.WAV", "3_loud.WAV", "4_loud.WAV", "5_loud.WAV", "6_loud.WAV", "7_loud.WAV", "8_loud.WAV", "9_loud.WAV", "10_loud.WAV", "11_loud.WAV", "12_loud.WAV"}; // C through B (output)
+const char* commands[] = {"0.WAV", "1.WAV", "2.WAV", "3.WAV", "4.WAV", "5.WAV", "6.WAV", "7.WAV", "8.WAV", "9.WAV", "10.WAV", "11.WAV", "12.WAV"};
 arduinoFFT FFT = arduinoFFT();
 
 
@@ -308,35 +308,35 @@ void loop() {
     
     if (-53 < c && c <= -41.6){
     delay(1000);
-    playFile("fifty_loud.WAV"); 
+    playFile("fifty.WAV"); 
     delay(200);
     playFile(commands[d]); 
     delay(200);
     }    
     else if (-41.6 < c && c <= -33.3){
       delay(1000);
-    playFile("fourty_loud.WAV"); 
+    playFile("fourty.WAV"); 
     delay(200);    
     playFile(commands[d]); 
     delay(200);
     }
     else if (-33.3 < c && c <= -25){
       delay(1000);
-    playFile("thirty_loud.WAV"); 
+    playFile("thirty.WAV"); 
     delay(200);
     playFile(commands[d]); 
     delay(200);
     }
     else if (-25 < c && c <= -16.6){
       delay(1000);
-    playFile("twenty_loud.WAV"); 
+    playFile("twenty.WAV"); 
     delay(200);
     playFile(commands[d]); 
     delay(200);
     }    
     else if (-16.6 < c && c <= -8.3){
       delay(1000);
-    playFile("ten_loud.WAV"); 
+    playFile("ten.WAV"); 
     delay(200);
     playFile(commands[d]); 
     delay(200);
@@ -355,35 +355,35 @@ void loop() {
       delay(1000);
     playFile(commands[d]); 
     delay(200);
-    playFile("ten_loud.WAV"); 
+    playFile("ten.WAV"); 
     delay(200);
     }
     else if (16.6 < c && c <= 25){
       delay(1000);
     playFile(commands[d]); 
     delay(200);
-    playFile("twenty_loud.WAV"); 
+    playFile("twenty.WAV"); 
     delay(200);
     } 
     else if (25 < c && c <= 33.3){
       delay(1000);
     playFile(commands[d]); 
     delay(200);
-    playFile("thirty_loud.WAV"); 
+    playFile("thirty.WAV"); 
     delay(200);
     } 
     else if (33.3 < c && c <= 41.6){
       delay(1000);
     playFile(commands[d]); 
     delay(200);
-    playFile("fourty_loud.WAV"); 
+    playFile("fourty.WAV"); 
     delay(200);
     }  
     else if (41.6 < c && c <= 53){
       delay(1000);
     playFile(commands[d]); 
     delay(200);
-    playFile("fifty_loud.WAV"); 
+    playFile("fifty.WAV"); 
     delay(200);
     }  
     else{

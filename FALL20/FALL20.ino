@@ -13,7 +13,8 @@
 #define LED_RIGHT 2
 #define KERNEL_SIZE 5 // size of window for filtering
 
-const char* commands[] = {"0_loud.WAV", "1_loud.WAV", "2_loud.WAV", "3_loud.WAV", "4_loud.WAV", "5_loud.WAV", "6_loud.WAV", "7_loud.WAV", "8_loud.WAV", "9_loud.WAV", "10_loud.WAV", "11_loud.WAV", "12_loud.WAV"}; // C through B (output)
+const char* commands[] = {"0.WAV", "1.WAV", "2.WAV", "3.WAV", "4.WAV", "5.WAV", "6.WAV", "7.WAV", "8.WAV", "9.WAV", "10.WAV", "11.WAV", "12.WAV"};
+//const char* commands[] = {"0_loud.WAV", "1_loud.WAV", "2_loud.WAV", "3_loud.WAV", "4_loud.WAV", "5_loud.WAV", "6_loud.WAV", "7_loud.WAV", "8_loud.WAV", "9_loud.WAV", "10_loud.WAV", "11_loud.WAV", "12_loud.WAV"}; // C through B (output)
 arduinoFFT FFT = arduinoFFT();
 
 
