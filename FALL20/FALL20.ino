@@ -328,35 +328,40 @@ void loop() {
     
     if (-53 < c && c <= -41.6){
     delay(1000);
-    playFile("fifty_loud.WAV"); 
+    //playFile("fifty_loud.WAV");
+    playFile("fifty.WAV"); 
     delay(200);
     playFile(commands[d]); 
     delay(200);
     }    
     else if (-41.6 < c && c <= -33.3){
       delay(1000);
-    playFile("fourty_loud.WAV"); 
+    //playFile("fourty_loud.WAV");
+    playFile("fourty.WAV"); 
     delay(200);    
     playFile(commands[d]); 
     delay(200);
     }
     else if (-33.3 < c && c <= -25){
       delay(1000);
-    playFile("thirty_loud.WAV"); 
+    //playFile("thirty_loud.WAV"); 
+    playFile("thirty.WAV"); 
     delay(200);
     playFile(commands[d]); 
     delay(200);
     }
     else if (-25 < c && c <= -16.6){
       delay(1000);
-    playFile("twenty_loud.WAV"); 
+    //playFile("twenty_loud.WAV"); 
+    playFile("twenty.WAV"); 
     delay(200);
     playFile(commands[d]); 
     delay(200);
     }    
     else if (-16.6 < c && c <= -8.3){
       delay(1000);
-    playFile("ten_loud.WAV"); 
+    //playFile("ten_loud.WAV");
+    playFile("ten.WAV"); 
     delay(200);
     playFile(commands[d]); 
     delay(200);
