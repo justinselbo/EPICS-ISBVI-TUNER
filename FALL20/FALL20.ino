@@ -11,7 +11,7 @@
 #define LED_LEFT 4
 #define LED_CENTER 3
 #define LED_RIGHT 2
-#define KERNEL_SIZE 5 // size of window for filtering
+#define KERNEL_SIZE 3 // size of window for filtering
 
 const char* commands[] = {"0.WAV", "1.WAV", "2.WAV", "3.WAV", "4.WAV", "5.WAV", "6.WAV", "7.WAV", "8.WAV", "9.WAV", "10.WAV", "11.WAV", "12.WAV"};
 //const char* commands[] = {"0_loud.WAV", "1_loud.WAV", "2_loud.WAV", "3_loud.WAV", "4_loud.WAV", "5_loud.WAV", "6_loud.WAV", "7_loud.WAV", "8_loud.WAV", "9_loud.WAV", "10_loud.WAV", "11_loud.WAV", "12_loud.WAV"}; // C through B (output)
@@ -80,6 +80,7 @@ void loop() {
         microseconds = micros();    //Overflows after around 70 minutes!
      
         vReal[i] = analogRead(2);
+        Serial.println(vReal[i]);
         vImag[i] = 0;
      
         while(micros() < (microseconds + sampling_period_us)){
@@ -410,6 +411,7 @@ void loop() {
 
 
 
+    /*
     //Debug code
     Serial.println();
     Serial.print("Note is ");
@@ -422,5 +424,6 @@ void loop() {
     Serial.print("d is ");
     Serial.print(d);
     //delay(1000);  //Repeat the process every second OR:
+    */
     
 }
