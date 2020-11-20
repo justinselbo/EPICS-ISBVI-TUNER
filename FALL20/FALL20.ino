@@ -7,7 +7,7 @@
 #include <math.h>
 
 #define SAMPLES 2048             //Must be a power of 2
-#define SAMPLING_FREQUENCY 2000 //Hz, must be less than 10000 due to ADC
+#define SAMPLING_FREQUENCY 9000 //Hz, must be less than 10000 due to ADC
 #define LED_LEFT 4
 #define LED_CENTER 3
 #define LED_RIGHT 2
