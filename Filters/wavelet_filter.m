@@ -1,12 +1,16 @@
-[y,Fs] = audioread('example.wav'); %loading the audio
-info = audioinfo('example.wav');
+[y,Fs] = audioread('100Hz_44100Hz_16bit_0.1sec.wav'); %loading the audio
+info = audioinfo('100Hz_44100Hz_16bit_0.1sec.wav');
 t = 0:seconds(1/Fs):seconds(info.Duration);
 t = t(1:end-1);
 subplot(3,1,1);
 plot(t,y);
 xlabel('Time')
 ylabel('Original Audio Signal')
-yn = awgn(y,10,'measured');  %add noise, you don't want to add noise for the tuner. This was just for testing
+
+%yn = awgn(y,10,'measured');  %add noise, you don't want to add noise for the tuner. This was just for testing
+noiseAmplitude = 1;
+yn = y + noiseAmplitude * rand(size(y)); %you don't want to add noise, this is just for testing
+
 subplot(3,1,2)
 plot(t,yn);
 xlabel('Time')

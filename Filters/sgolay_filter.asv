@@ -1,22 +1,24 @@
-hold on
 x = 1 : 300;
 period = 50;
 fontSize =12;
 y = sin(2*pi*x/period);
 noiseAmplitude = 0.8;
 y = y + noiseAmplitude * rand(size(y)); %you don't want to add noise, this is just for testing
+subplot(2,1,1);
 plot(x, y, 'b-', 'LineWidth', 2);
+title('Noisy Signal', 'FontSize', fontSize);
 
 set(gcf, 'Units', 'Normalized', 'OuterPosition', [0 0 1 1]);
 
 set(gcf, 'Name', 'Demo by ImageAnalyst', 'NumberTitle', 'Off') 
 
 % Now smooth with a Savitzky-Golay sliding polynomial filter
-windowWidth = 15;
+windowWidth = 27;
 polynomialOrder = 3;
 smoothY1 = sgolayfilt(y, polynomialOrder, windowWidth);
 smoothY2 = ourOwnSgolay(y, polynomialOrder, windowWidth);
+subplot(2,1,2);
 plot(x, smoothY1, 'g-', 'LineWidth', 2);
 plot(x, smoothY2, 'r-', 'LineWidth', 2);
-title('Signals', 'FontSize', fontSize);
-legend('Noisy', 'Built-in sgolay', 'Our sgolay');
+title('Smoothed Signal', 'FontSize', fontSize);
+legend('noisy wave', ';
