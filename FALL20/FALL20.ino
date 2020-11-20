@@ -33,7 +33,7 @@ unsigned long microseconds;
  
 double vReal[SAMPLES];
 double vImag[SAMPLES];
-int sens = 360; //level that note must reach to be recorded
+int sens = 800; //level that note must reach to be recorded
  
 void setup() {
     pinMode(LED_LEFT, OUTPUT);
