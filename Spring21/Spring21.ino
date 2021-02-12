@@ -6,8 +6,8 @@
 #include <SerialFlash.h>
 #include <math.h>
 
-#define SAMPLES 2048             //Must be a power of 2
-#define SAMPLING_FREQUENCY 2000 //Hz, must be less than 10000 due to ADC
+#define SAMPLES 4096             //Must be a power of 2
+#define SAMPLING_FREQUENCY 10000 //Hz, must be less than 10000 due to ADC
 #define LED_LEFT 4
 #define LED_CENTER 3
 #define LED_RIGHT 2
@@ -25,7 +25,7 @@ AudioOutputAnalog        audioOutput;
 
 AudioConnection          patchCord2(playWav1, 0, audioOutput, 0);
 AudioConnection          patchCord3(playWav1, 1, audioOutput, 1);
-
+s
 #define SDCARD_CS_PIN    BUILTIN_SDCARD
  
 unsigned int sampling_period_us;
@@ -33,7 +33,7 @@ unsigned long microseconds;
  
 double vReal[SAMPLES];
 double vImag[SAMPLES];
-int sens = 800 ;//360; //level that note must reach to be recorded
+int sens = 600 ;//360; //level that note must reach to be recorded
  
 void setup() {
     pinMode(LED_LEFT, OUTPUT);
